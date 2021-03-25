@@ -1,10 +1,17 @@
 dist: xenial
 language: python
+arch:
+  - amd64
+  - ppc64le
 python:
   - 3.5
   - 3.6
   - 3.7
   - 3.8
   - pypy3.5-6.0
+jobs:
+  - exclude
+    - arch: ppc64le
+      python: pypy3.5-6.0
 script:
   - python setup.py test
